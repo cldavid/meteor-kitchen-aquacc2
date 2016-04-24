@@ -99,16 +99,90 @@
                 {
                     "name": "charts",
                     "title": "Charts",
-                    "text": "",
-                    "components": [
-                    {
-                        "name": "view_devices",
-                        "type": "sensor_graph",
-                        "properties": { "anything": "here" },
-                        "query_name": "sensors_graph",
-                        "query_params": []
-                    },
-                    ]
+                    "pages": [
+                      {
+                        "name": "temperature_6h",
+                        "title": "Temperature last 6h",
+                        "text": "",
+                        "components": [
+                          {
+                            "name": "view_devices",
+                            "type": "temp_graph_6h",
+                            "properties": { "anything": "here" },
+                            "query_name": "sensors_graph",
+                            "query_params": []
+                          },
+                        ]
+                      },
+                      {
+                        "name": "temperature_24h",
+                        "title": "Temperature last 24h",
+                        "text": "",
+                        "components": [
+                          {
+                            "name": "view_devices",
+                            "type": "temp_graph_24h",
+                            "properties": { "anything": "here" },
+                            "query_name": "sensors_graph",
+                            "query_params": []
+                          },
+                        ]
+                      },
+                      {
+                        "name": "temperature_1w",
+                        "title": "Temperature last week",
+                        "text": "",
+                        "components": [
+                          {
+                            "name": "view_devices",
+                            "type": "temp_graph_1w",
+                            "properties": { "anything": "here" },
+                            "query_name": "sensors_graph",
+                            "query_params": []
+                          },
+                        ]
+                      },
+                      {
+                        "name": "temperature_1m",
+                        "title": "Temperature last month",
+                        "text": "",
+                        "components": [
+                          {
+                            "name": "view_devices",
+                            "type": "temp_graph_1m",
+                            "properties": { "anything": "here" },
+                            "query_name": "sensors_graph",
+                            "query_params": []
+                          },
+                        ]
+                      },
+                      {
+                        "name": "temperature_1y",
+                        "title": "Temperature last year",
+                        "text": "",
+                        "components": [
+                          {
+                            "name": "view_devices",
+                            "type": "temp_graph_1y",
+                            "properties": { "anything": "here" },
+                            "query_name": "sensors_graph",
+                            "query_params": []
+                          },
+                        ]
+                      },
+                    ],
+                      "components": [
+                        {
+                          "name": "charts_menu",
+                          "type": "menu",
+                          "items": [
+                            { "title": "Temperature 6h",    "route": "charts.temperature_6h" },
+                            { "title": "Temperature 24h",   "route": "charts.temperature_24h" },
+                            { "title": "Temperature week",  "route": "charts.temperature_1w" },
+                            { "title": "Temperature month", "route": "charts.temperature_1m" },
+                            { "title": "Temperature year",  "route": "charts.temperature_1y" },
+                          ]
+                        }]
                 },
                 { "name": "about", "title": "About", "text": "Aqua Control Center.<br/>David Cluytens." }
                 ],
