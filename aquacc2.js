@@ -23,6 +23,42 @@
                 ],
                 "before_insert_source_file": "measurements_before_insert.js",
                 "after_insert_source_file": "measurements_after_insert.js",
+            },
+            {
+                "name": "measurements_24h",
+                "fields": [
+                { "name": "topic", "title": "ID", "exportable": true },
+                { "name": "message", "title": "Temperature", "exportable": true },
+                { "name": "modifiedAt", "title": "Modified", "exportable": true },
+                { "name": "createdAt", "title": "Modified", "exportable": true },
+                ],
+            },
+            {
+                "name": "measurements_1w",
+                "fields": [
+                { "name": "topic", "title": "ID", "exportable": true },
+                { "name": "message", "title": "Temperature", "exportable": true },
+                { "name": "modifiedAt", "title": "Modified", "exportable": true },
+                { "name": "createdAt", "title": "Modified", "exportable": true },
+                ],
+            },
+            {
+                "name": "Measurements_1m",
+                "fields": [
+                { "name": "topic", "title": "ID", "exportable": true },
+                { "name": "message", "title": "Temperature", "exportable": true },
+                { "name": "modifiedAt", "title": "Modified", "exportable": true },
+                { "name": "createdAt", "title": "Modified", "exportable": true },
+                ],
+            },
+            {
+                "name": "Measurements_1y",
+                "fields": [
+                { "name": "topic", "title": "ID", "exportable": true },
+                { "name": "message", "title": "Temperature", "exportable": true },
+                { "name": "modifiedAt", "title": "Modified", "exportable": true },
+                { "name": "createdAt", "title": "Modified", "exportable": true },
+                ],
             }
         ],
             "queries": [
@@ -46,12 +82,16 @@
                 "filter": {},
                 "options": { "sort": [ ["createdAt", "asc"] ]},
                 "related_queries": [ {"name": "devices"}]
+            },
+            {
+                "name": "sensors_graph_24h",
+                "collection": "measurements_24h",
+                "filter": {},
+                "options": { "sort": [ ["createdAt", "asc"] ]},
+                "related_queries": [ {"name": "devices"}]
             }
         ],
-
-            "server_startup_code": "
-                Devices.mqttConnect('mqtt://localhost', ['Devices/#'], { insert: false });
-                Measurements.mqttConnect('mqtt://localhost', ['Measurements/#'], { insert: true });",
+            "server_startup_source_file": "server_startup_code.js",
             "free_zone": {
                 "pages": [
                 {
@@ -93,7 +133,7 @@
                             "name": "view_devices",
                             "type": "temp_graph_24h",
                             "properties": { "anything": "here" },
-                            "query_name": "sensors_graph",
+                            "query_name": "sensors_graph_24h",
                             "query_params": []
                           },
                         ]
