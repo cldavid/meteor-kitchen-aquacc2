@@ -12,18 +12,7 @@
                 { "name": "sensor", "title": "Sensor", "exportable": true },
                 { "name": "lastMeasurement", "title": "Data", "exportable": true },
                 ],
-                "before_insert_code": "
-                    console.log('david');
-                var myArr = doc.topic.split('/');
-                console.log(myArr);
-                if (myArr) {
-                    var device = myArr[1];
-                    var sensor = myArr[3];
-                    doc.device = device;
-                    doc.sensor = sensor
-                }
-                console.log(doc);
-                ",
+                "before_insert_source_file": "devices_before_insert.js",
             },
             {
                 "name": "measurements",
@@ -32,29 +21,10 @@
                 { "name": "message", "title": "Temperature", "exportable": true },
                 { "name": "modifiedAt", "title": "Modified", "exportable": true }
                 ],
-                    "before_insert_code": "
-                        var myArr = doc.topic.split('/');
-                if (myArr) {
-                    var device = myArr[2];
-                    var sensor = myArr[4];
-                    doc.device = device;
-                    doc.sensor = sensor
-                }",
-                    "after_insert_code": "
-                        var lastM = 0;
-                var device;
-                var sensor;
-                Measurements.find({_id: doc._id }).map(
-                        function(item) {
-                        device = item.device;
-                        sensor = item.sensor;
-                        lastM = item.message;
-                        });
-                var topic = 'Devices/' + device + '/Sensors/' + sensor;
-                Devices.update({ topic: topic}, { $set: { device: device, sensor: sensor, lastMeasurement: lastM }});",
+                "before_insert_source_file": "measurements_before_insert.js",
+                "after_insert_source_file": "measurements_after_insert.js",
             }
         ],
-
             "queries": [
             {
                 "name": "devices",
@@ -177,7 +147,7 @@
                           "type": "menu",
                           "items": [
                             { "title": "Temperature 6h",    "route": "charts.temperature_6h" },
-                            { "title": "Temperature 24h",   "route": "charts.temperature_24h" },
+                            { "title": "Temperature 24h",   "route": "charts.temperature_24h"},
                             { "title": "Temperature week",  "route": "charts.temperature_1w" },
                             { "title": "Temperature month", "route": "charts.temperature_1m" },
                             { "title": "Temperature year",  "route": "charts.temperature_1y" },
