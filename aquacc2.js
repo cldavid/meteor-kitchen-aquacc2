@@ -89,6 +89,27 @@
                 "filter": {},
                 "options": { "sort": [ ["createdAt", "asc"] ]},
                 "related_queries": [ {"name": "devices"}]
+            },
+            {
+                "name": "sensors_graph_1w",
+                "collection": "measurements_24h",
+                "filter": {},
+                "options": { "sort": [ ["createdAt", "asc"] ]},
+                "related_queries": [ {"name": "devices"}]
+            },
+            {
+                "name": "sensors_graph_1m",
+                "collection": "measurements_24h",
+                "filter": {},
+                "options": { "sort": [ ["createdAt", "asc"] ]},
+                "related_queries": [ {"name": "devices"}]
+            },
+            {
+                "name": "sensors_graph_1y",
+                "collection": "measurements_24h",
+                "filter": {},
+                "options": { "sort": [ ["createdAt", "asc"] ]},
+                "related_queries": [ {"name": "devices"}]
             }
         ],
             "server_startup_source_file": "server_startup_code.js",
@@ -119,7 +140,7 @@
                             "name": "view_devices",
                             "type": "temp_graph_6h",
                             "properties": { "anything": "here" },
-                            "query_name": "sensors_graph",
+                            "query_name": "sensors_graph_24h",
                             "query_params": []
                           },
                         ]
@@ -147,7 +168,7 @@
                             "name": "view_devices",
                             "type": "temp_graph_1w",
                             "properties": { "anything": "here" },
-                            "query_name": "sensors_graph",
+                            "query_name": "sensors_graph_1w",
                             "query_params": []
                           },
                         ]
@@ -161,7 +182,7 @@
                             "name": "view_devices",
                             "type": "temp_graph_1m",
                             "properties": { "anything": "here" },
-                            "query_name": "sensors_graph",
+                            "query_name": "sensors_graph_1m",
                             "query_params": []
                           },
                         ]
@@ -175,7 +196,7 @@
                             "name": "view_devices",
                             "type": "temp_graph_1y",
                             "properties": { "anything": "here" },
-                            "query_name": "sensors_graph",
+                            "query_name": "sensors_graph_1y",
                             "query_params": []
                           },
                         ]

@@ -23,6 +23,7 @@ Measurements24h.update({topic: topic, createdAt: epoch}, { $set: { device: devic
 epoch.setMinutes(minutes - (minutes % 5));
 Measurements1w.update({topic: topic, createdAt: epoch}, { $set: { device: device, sensor: sensor}, $inc: {nmeasurements: 1, sum: lastM}}, {upsert: true});
 
+epoch.setMinutes(0);
 epoch.setHours(0);
 Measurements1m.update({topic: topic, createdAt: epoch}, { $set: { device: device, sensor: sensor}, $inc: {nmeasurements: 1, sum: lastM}}, {upsert: true});
 Measurements1y.update({topic: topic, createdAt: epoch}, { $set: { device: device, sensor: sensor}, $inc: {nmeasurements: 1, sum: lastM}}, {upsert: true});
