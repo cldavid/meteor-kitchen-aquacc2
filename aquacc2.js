@@ -92,21 +92,21 @@
             },
             {
                 "name": "sensors_graph_1w",
-                "collection": "measurements_24h",
+                "collection": "measurements_1w",
                 "filter": {},
                 "options": { "sort": [ ["createdAt", "asc"] ]},
                 "related_queries": [ {"name": "devices"}]
             },
             {
                 "name": "sensors_graph_1m",
-                "collection": "measurements_24h",
+                "collection": "measurements_1m",
                 "filter": {},
                 "options": { "sort": [ ["createdAt", "asc"] ]},
                 "related_queries": [ {"name": "devices"}]
             },
             {
                 "name": "sensors_graph_1y",
-                "collection": "measurements_24h",
+                "collection": "measurements_1y",
                 "filter": {},
                 "options": { "sort": [ ["createdAt", "asc"] ]},
                 "related_queries": [ {"name": "devices"}]
